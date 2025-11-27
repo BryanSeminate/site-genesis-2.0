@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mensagem enviada | Grupo Gênesis</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HEADER (opcional, igual ao site) -->
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo">
+        <svg class="logo-dna" width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 4 C32 20,32 44,16 60" stroke="#35f58b" stroke-width="4" fill="none"/>
+          <path d="M48 4 C32 20,32 44,48 60" stroke="#35f58b" stroke-width="4" fill="none"/>
+          <line x1="22" y1="14" x2="42" y2="14" stroke="#35f58b" stroke-width="3"/>
+          <line x1="22" y1="28" x2="42" y2="28" stroke="#35f58b" stroke-width="3"/>
+          <line x1="22" y1="42" x2="42" y2="42" stroke="#35f58b" stroke-width="3"/>
+          <line x1="22" y1="56" x2="42" y2="56" stroke="#35f58b" stroke-width="3"/>
+        </svg>
+        <span class="logo-text">GRUPO GÊNESIS</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- SEÇÃO DE OBRIGADO, USANDO A MESMA BASE VISUAL -->
+  <section class="hero" id="inicio">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Mensagem enviada com sucesso!</h1>
+        <p>
+          Agradecemos o seu contato. Em breve nossa equipe do Grupo Gênesis
+          vai falar com você para entender melhor a realidade do seu condomínio
+          e montar uma proposta personalizada de portaria remota, portaria autônoma
+          e armários inteligentes.
+        </p>
+        <div class="hero-buttons">
+          <a href="index.html#inicio" class="btn btn-outline">
+            Voltar para o início
+          </a>
+          <a
+            href="https://api.whatsapp.com/send/?phone=5516991600570&text=Ol%C3%A1%21%20Enviei%20uma%20mensagem%20pelo%20site%20do%20Grupo%20G%C3%AAnesis%20e%20quero%20continuar%20o%20atendimento%20pelo%20WhatsApp.&type=phone_number&app_absent=0"
+            target="_blank"
+            class="btn btn-primary"
+          >
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> Grupo Gênesis. Todos os direitos reservados.</p>
+      <p class="footer-sub">Soluções inteligentes para condomínios.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Atualiza ano automaticamente
+    document.addEventListener("DOMContentLoaded", function () {
+      const yearSpan = document.getElementById("year");
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+</body>
+</html>
