@@ -28,3 +28,14 @@
   <path d="M26 42 L44 44" stroke="#35f58b" stroke-width="2" stroke-linecap="round" />
   <path d="M26 50 L44 52" stroke="#35f58b" stroke-width="2" stroke-linecap="round" />
 </svg>
+// --- MENU HAMBÚRGUER MOBILE ---
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".nav");
+
+  if (!menuToggle || !nav) return;
+
+  menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("open");
+  });
+});

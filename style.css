@@ -1,12 +1,12 @@
 :root {
-  --bg-main: #02040a;
-  --bg-alt: #050814;
-  --card-bg: #070b17;
+  --bg-main: #101D13;
+  --bg-alt: #101D13;
+  --card-bg: #A0A0A0;
   --border-subtle: rgba(255, 255, 255, 0.05);
-  --accent: #35f58b;
-  --accent-soft: rgba(53, 245, 139, 0.1);
+  --accent: #00F964;
+  --accent-soft: #101D13;
   --text-primary: #f8fafc;
-  --text-secondary: #cbd5f5;
+  --text-secondary: #A0A0A0;
   --danger: #f97373;
   --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -24,7 +24,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-main);
-  background: radial-gradient(circle at top, #07111f 0, #02040a 60%);
+  background: radial-gradient(circle at top, #101D13 0, #101D13 60%);
   color: var(--text-primary);
 }
 
@@ -41,7 +41,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(2, 4, 10, 0.92);
+  background: #101D13;
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -147,8 +147,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 0 0, rgba(53, 245, 139, 0.15), transparent 55%),
-    radial-gradient(circle at 100% 100%, rgba(53, 245, 139, 0.08), transparent 50%);
+    radial-gradient(circle at 0 0, #00f964, transparent 30%),
+    radial-gradient(circle at 100% 100%, #E4FF01, transparent 30%);
   pointer-events: none;
 }
 
@@ -187,7 +187,7 @@ body {
 .hero-dna {
   border-radius: 18px;
   border: 1px solid var(--border-subtle);
-  background: radial-gradient(circle at top, #050c18, #02040a);
+  background: radial-gradient(circle at top, #E4FF01, #13C44B);
   padding: 1.5rem;
   position: relative;
   overflow: hidden;
@@ -198,10 +198,49 @@ body {
   position: absolute;
   width: 160%;
   height: 160%;
-  background: radial-gradient(circle, rgba(53, 245, 139, 0.3), transparent 55%);
+  background: radial-gradient(circle, #101D13, transparent 55%);
   top: -20%;
   left: -30%;
   opacity: 0.1;
+}
+
+/* HERO DNA IMAGENS - imagens lado a lado responsivas */
+/* HERO DNA ITEM - controle isolado do tamanho e layout */
+.hero-dna-item {
+  display: flex;
+  flex-direction: column; /* imagem em cima, texto embaixo */
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.hero-dna-item img {
+  width: 200px;  /* tamanho menor das imagens */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.hero-dna-item figcaption {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--bg-main);
+}
+
+.hero-dna-images {
+  display: flex;
+  flex-wrap: wrap;      /* permite quebrar linha */
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;          /* ocupa 100% da largura */
+}
+
+.hero-dna-images img {
+  width: clamp(100px, 25vw, 160px);  /* cresce proporcionalmente em telas grandes */
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .dna-line {
@@ -248,29 +287,34 @@ body {
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: #020617;
-  box-shadow: 0 0 18px rgba(53, 245, 139, 0.45);
+  background: #13C44B;
+  color: var(--accent-soft);
+  box-shadow: 0 0 18px #13C44B;
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 0 26px rgba(53, 245, 139, 0.7);
+  box-shadow: 0 0 26px #101D13;
+  color: var(--text-primary);
 }
 
 .btn-outline {
   border-color: var(--accent);
   color: var(--accent);
   background: transparent;
+  box-shadow: 0 0 18px #13C44B;
 }
 
 .btn-outline:hover {
-  background: var(--accent-soft);
+  background: #13C44B;
+  box-shadow: 0 0 18px #13C44B;
+  color: var(--text-primary);
 }
 
 .btn-full {
   width: 100%;
 }
+
 
 /* SESSÕES */
 .section {
@@ -303,29 +347,43 @@ body {
 
 .highlight-card {
   box-shadow: 0 0 18px rgba(53, 245, 139, 0.25);
+  background: radial-gradient(circle at top, #E4FF01, #13C44B);
+  color: #101D13;
 }
 
 .card h3 {
   margin-top: 0;
   margin-bottom: 0.8rem;
+  
+  
+}
+
+.card {
+background: radial-gradient(circle at top, #E4FF01, #13C44B);
+  color: #101D13;
 }
 
 .card ul {
   padding-left: 1.1rem;
   margin: 0.4rem 0 0;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   font-size: 0.95rem;
+  
+  
 }
 
 .card ul li + li {
   margin-top: 0.2rem;
+  
 }
 
 /* CARDS EM GRID */
 .cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  
   gap: 1.5rem;
+  
 }
 
 /* TECNOLOGIA */
@@ -339,9 +397,10 @@ body {
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
   border: 1px solid var(--accent-soft);
-  background: rgba(15, 23, 42, 0.9);
+  background: radial-gradient(circle at top, #E4FF01, #13C44B);
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: #101D13;);
+
 }
 
 /* SEGMENTOS */
@@ -356,6 +415,8 @@ body {
   border-radius: 12px;
   padding: 1.2rem;
   border: 1px solid var(--border-subtle);
+  background: radial-gradient(circle at top, #E4FF01, #13C44B);
+  color: #101D13;
 }
 
 .segment-card h3 {
@@ -367,7 +428,7 @@ body {
 .segment-card p {
   margin: 0;
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: #101D13;
 }
 
 /* LIST CARD */
@@ -381,7 +442,7 @@ body {
   position: relative;
   padding-left: 1.3rem;
   margin-bottom: 0.35rem;
-  color: var(--text-secondary);
+  color: #101D13;
   font-size: 0.95rem;
 }
 
@@ -390,7 +451,15 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--accent);
+  color: #E4FF01;
+}
+
+/* === FORMULÁRIO – CAIXAS DE TEXTO BRANCAS === */
+.form-group input,
+.form-group textarea {
+  background: rgba(255, 255, 255, 0.6) !important;  /* branco com leve transparência */
+  color: #ffffff !important;                        /* texto branco dentro da caixa */
+  border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
 /* CONTATO */
@@ -417,6 +486,7 @@ body {
   border-radius: 14px;
   padding: 1.6rem;
   border: 1px solid var(--border-subtle);
+  background: radial-gradient(circle at top, #13C44B, #101D13);
 }
 
 .form-group {
@@ -424,11 +494,14 @@ body {
   flex-direction: column;
   gap: 0.35rem;
   margin-bottom: 0.9rem;
+  
+
 }
 
 .form-group label {
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: var(--text-primary);
+  
 }
 
 .form-group input,
@@ -453,11 +526,18 @@ body {
   font-size: 0.85rem;
 }
 
+/* === PLACEHOLDER BRANCO NOS CAMPOS DO FORMULÁRIO === */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #ffffff !important;   /* placeholder branco */
+  opacity: 1;                  /* garante que alguns navegadores não deixem mais claro */
+}
+
 /* FOOTER */
 .footer {
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid #A0A0A0;
   padding: 1.8rem 0;
-  background: #02040a;
+  background: #101D13;
 }
 
 .footer-content {
@@ -528,11 +608,173 @@ body {
     padding-top: 5rem;
   }
 
+  .hero-dna-imagens {
+    gap: 0.75rem;
+  }
+  .hero-dna-images img {
+    width: clamp(60px, 28vw, 120px); /* aumenta para preencher mais a largura em telas pequenas */
+  }
+
   .header-content {
     padding-inline: 1rem;
   }
 
   .container {
     padding-inline: 1rem;
+  }
+}
+
+/* === AJUSTE FINAL: garantir que as imagens fiquem lado a lado === */
+.hero-dna-images {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-dna-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-dna-item img {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* === FORCE HERO DNA IMAGES SIDE BY SIDE === */
+.hero-dna-images {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 20px !important;
+  flex-wrap: nowrap !important; /* impede quebrar linha */
+}
+
+.hero-dna-item img {
+  width: 120px !important; /* tamanho uniforme */
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* === HERO DNA – IMAGENS PREENCHENDO TODA A ÁREA === */
+.hero-dna-images {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  gap: 0 !important;
+}
+
+.hero-dna-item {
+  flex: 1 1 50% !important;   /* cada imagem ocupa metade da largura */
+  max-width: 50% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.hero-dna-item img {
+  width: 100% !important;     /* imagem ocupa 100% do bloco */
+  height: auto !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* === HERO DNA — IMAGENS 100px LADO A LADO + RESPONSIVIDADE === */
+.hero-dna-images {
+  display: flex;
+  flex-wrap: wrap;           
+  justify-content: center;   
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-dna-item {
+  display: flex;
+  flex-direction: column;    
+  align-items: center;
+  text-align: center;
+}
+
+.hero-dna-item img {
+  width: 100px;              
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .hero-dna-images {
+    gap: 12px;
+  }
+
+  .hero-dna-item img {
+    width: 80px;             
+  }
+}
+
+/* === FIX DEFINITIVO: DUAS IMAGENS LADO A LADO === */
+.hero-dna-images {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;     /* impede quebrar */
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 20px !important;
+}
+
+.hero-dna-item {
+  flex: 0 0 auto !important;        /* impede ocupar 50% */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.hero-dna-item img {
+  width: 140px !important;          /* tamanho maior */
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* === MENU MOBILE – ABRIR NO CANTO SUPERIOR DIREITO (FINAL) === */
+@media (max-width: 768px) {
+  .menu-toggle {
+    position: relative;
+    z-index: 20; /* garante que o botão fique acima do menu */
+  }
+
+  .nav {
+    position: absolute;
+    top: 64px;          /* aparece logo abaixo do header */
+    right: 1.5rem;      /* abre no canto superior direito */
+    left: auto;
+    width: 220px;       /* largura do dropdown */
+    background: #101d13;
+    border: 1px solid rgba(0,0,0,0.25);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .nav.open {
+    display: flex;       /* menu aparece quando JS adiciona .open */
+  }
+
+  .nav a {
+    width: 100%;
+    color: #AOAOAO;
   }
 }
